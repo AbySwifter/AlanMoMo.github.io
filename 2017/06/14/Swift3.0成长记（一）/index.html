@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Head -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="做一个有行动力的攻城狮。">
+    <meta name="keyword" content="undefined">
+    <link rel="shortcut icon" href="">
+
+    
+
+    <title>
+        
+        Swift3.0成长记（一） |
+        
+        1024维度
+    </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Plugin CSS -->
+
+
+    <!-- Custom CSS -->
+    <!-- ↓这是stylus文件 -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/toc.css">
+
+
+</head>
+<body></body>
+
+
+<body>
+
+<!-- Header -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header {
+     background-image: url('undefined');
+        /*post*/
+    
+    }
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- 文章 -->
+                
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Swift3.0成长记（一）</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                            Posted by 王勇旭 on
+                        2017-06-14
+                        </span>
+                </div>
+                <!-- 非文章 -->
+                
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Nav -->
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">1024维度</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li><a href="/">Home</a></li>
+                    
+                    <li><a href="/portfolio">Portfolio</a></li>
+                    
+                    <li><a href="/about">About</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Content -->
+<!-- Content -->
+<div class="container">
+    <div class="row">
+        <!-- Post container -->
+
+        <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+
+            <p>写iOS应用也有阵子了，对于swift的语法简洁非常喜欢，抽空进行了学习，现在做一系列回顾笔记。</p>
+<p>#一、常量与变量</p>
+<p>在Swift中，使用let来表示常量，var来表示变量，所谓常量，即为不可改变的量，比如你声明一个UIButton对象，后面不会给这个对象赋值成别的什么按钮对象，初始化时即在内存中给这个对象开辟了一块空间，后面不会去改变这个对象的地址，因此，你可以这样来创建这个对象：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Int常量</span></div><div class="line"><span class="keyword">let</span> i = <span class="number">0</span></div><div class="line"><span class="comment">//String型常量</span></div><div class="line"><span class="keyword">let</span> str = <span class="string">"hello world!!"</span></div><div class="line"><span class="comment">//UI组件</span></div><div class="line"><span class="keyword">let</span> btn = <span class="type">UIButton</span>(type: .system)</div></pre></td></tr></table></figure>
+<p>#二、数据类型</p>
+<p>swift自动判断数据类型，在声明的时候可以不用规定，它自己会判断</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//不规定数据类型</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">"string"</span></div><div class="line"><span class="comment">//规定数据类型</span></div><div class="line"><span class="keyword">var</span> str:<span class="type">String</span> =  <span class="string">"string"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>着重强调下元组类型</p>
+</blockquote>
+<p>元组类型是swift的一种特殊类型，它把多个成员值复合成一个值，并且这些成员值的数据类型可以不相同。</p>
+<p>示例：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> student = (<span class="string">"熊爱民"</span>,<span class="number">1010</span>,<span class="string">"三年二班"</span>)</div><div class="line"></div><div class="line"><span class="keyword">let</span> name = student.<span class="number">0</span></div><div class="line"><span class="keyword">let</span> number = student.<span class="number">1</span></div><div class="line"><span class="keyword">let</span> grade = student.<span class="number">2</span></div></pre></td></tr></table></figure>
+<p>或者这样子写：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> student = (name:<span class="string">"小米"</span>,number:<span class="number">4</span>,grade:<span class="string">"三年二班"</span>)</div><div class="line"><span class="comment">//取值时，直接用点语法取值即可</span></div></pre></td></tr></table></figure>
+<p>#三、可选型</p>
+<p>本来可选型也是一种数据类型，应该写在上一步分的，但是，鉴于其特殊性，我将它单独拿出来记录。</p>
+<p>可选型用于确立是否有值的情况，其有两个返回值：nil或者具体的值</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> age : <span class="type">Int</span>?</div><div class="line"></div><div class="line">age = <span class="number">12</span></div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"<span class="subst">\(age)</span>"</span>)<span class="comment">//输出Optional(12)\n</span></div></pre></td></tr></table></figure>
+<p>为什么输出的不是12呢？<br>因为可选型的数据，必须通过解构才能使用</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//age!</span></div><div class="line"><span class="comment">//这样子打印出来就是12了</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"<span class="subst">\(age！)</span>"</span>)</div></pre></td></tr></table></figure>
+<p>#四、类型</p>
+<p>在类型的检验里，swift采用is与as关键字</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> role = <span class="string">"string"</span></div><div class="line"></div><div class="line"><span class="keyword">if</span>  role <span class="keyword">is</span> <span class="type">String</span>  &#123;</div><div class="line"></div><div class="line">    <span class="built_in">print</span>(<span class="string">"yes"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">let</span> role = <span class="number">1.0</span></div><div class="line"></div><div class="line">role <span class="keyword">as</span> <span class="type">CGFloat</span></div></pre></td></tr></table></figure>
+
+
+
+            <!-- Pager -->
+            <ul class="pager">
+                
+                <li class="previous">
+                    <a href="/2017/06/14/hello-world/" >&larr; Previous Post</a>
+                </li>
+                
+                
+            </ul>
+
+
+
+        </div>
+        <!-- Sidebar container-->
+        <div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+            <!-- toc -->
+            <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top" role="complementary">
+                <h4><i class="fa fa-bookmark"></i> Catalog</h4>
+                <ul class="nav bs-docs-sidenav">
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 1024维度 2017
+                    <br>
+                    Theme by <a href="http://beantech.org/">Bean Tech</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://yoursite.com">1024维度</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/script.js"></script>
+
+
+
+
+</body>
+</html>
